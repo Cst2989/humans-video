@@ -18,9 +18,14 @@ import audio2 from './EmagVideo/assets/audios/huawei00.wav'
 import audio1 from './EmagVideo/assets/fata/emag.mp4'
 import Bg from './EmagVideo/bg.png';
 export const EmagVideo: React.FC<{
-	titleText: string;
-	videoUrl: string;
-}> = ({titleText, videoUrl}) => {
+	productName: string;
+	productFullName: string;
+  productPrice: string;
+  productDiscount: string;
+  productRating: string;
+  productReview1: string;
+  productReview2: string;
+}> = ({productName, productFullName, productPrice, productDiscount, productRating, productReview1, productReview2}) => {
 	const frame = useCurrentFrame();
 	const videoConfig = useVideoConfig();
 
@@ -41,7 +46,7 @@ export const EmagVideo: React.FC<{
 					<BackgroundMusic/>
 				</Sequence>
 				<Sequence from={0} durationInFrames={160}>
-					<Screen1 productName="Huawei" />
+					<Screen1 productName={productName} />
 				</Sequence>
 				<Sequence from={20} durationInFrames={Infinity}>
 					<Audio
@@ -50,7 +55,7 @@ export const EmagVideo: React.FC<{
 		    />
 				</Sequence>
 				<Sequence from={100} durationInFrames={140}>
-					<Screen2 productFullName="Matebook X Pro Limitless Experience" />
+					<Screen2 productFullName={productFullName} />
 				</Sequence>
 				<Sequence from={100} durationInFrames={Infinity}>
 					<Audio
@@ -59,16 +64,16 @@ export const EmagVideo: React.FC<{
 		    />
 				</Sequence>
 				<Sequence from={210} durationInFrames={160}>
-					<Screen4 productDiscount="1298" />
+					<Screen4 productPrice={productPrice} />
 				</Sequence>
 				<Sequence from={300} durationInFrames={160}>
-					<Screen3 productDiscount="15" />
+					<Screen3 productDiscount={productDiscount} />
 				</Sequence>
 				<Sequence from={430} durationInFrames={160}>
-					<Screen5 productRating="4.7" />
+					<Screen5 productRating={productRating} />
 				</Sequence>
 				<Sequence from={530} durationInFrames={240}>
-					<Screen6 productReview1="Nice balance of performance and battery life" productReview2="If you like the build of a Macbook but prefer a PC this is the laptop for you" />
+					<Screen6 productReview1={productReview1} productReview2={productReview2} />
 				</Sequence>
 				<Sequence from={700} durationInFrames={400}>
 					<Screen7  />
