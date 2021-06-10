@@ -1,10 +1,10 @@
-import screen5 from './assets/videos/screen-5.mp4'
 import { VideoScreen } from './VideoScreen'
 import { ProductDiscount } from './ProductDiscount'
 import { Face } from './Face'
-import rating from './assets/fata/rating.mp4'
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-export const Screen5: React.FC<{productRating: string}> = ({productRating}) => {
+export const Screen5: React.FC<{ratingVideo: string, screenFiveVideo: string, productRating: string}> = ({ratingVideo, screenFiveVideo ,productRating}) => {
+  const screen5 = require( `${screenFiveVideo}`);
+  const rating = require( `${ratingVideo}`);
   const frame = useCurrentFrame();
   const top  = interpolate(frame, [0, 25], [-1920, 0], {
     extrapolateRight: "clamp"

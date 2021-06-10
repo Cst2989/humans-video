@@ -1,10 +1,9 @@
 import {Video} from 'remotion'
-import screen7 from './assets/videos/huawei.mp4'
-import { VideoScreen } from './VideoScreen'
 import { Face } from './Face'
-import screen7Face from './assets/fata/screen7-2.mp4'
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-export const Screen8: React.FC = () => {
+export const Screen8: React.FC<{screenEightVideo: string, screenEightFaceVideo: string }> = ({screenEightVideo, screenEightFaceVideo}) => {
+  const screen8 = require( `${screenEightVideo}`);
+  const screen8Face = require( `${screenEightFaceVideo}`);
   const frame = useCurrentFrame();
   const bottom  = interpolate(frame, [0, 35], [-1920, 0], {
     extrapolateRight: "clamp"
@@ -20,7 +19,7 @@ export const Screen8: React.FC = () => {
 		>
 			<Sequence from={0} durationInFrames={Infinity}>
 				<Video
-					src={screen7}
+					src={screen8}
 					startFrom={1020}
 					volume={0}
 					style={{
@@ -33,7 +32,7 @@ export const Screen8: React.FC = () => {
 		    />
 			</Sequence>
 			<Sequence from={120} durationInFrames={300} >
-				<Face faceVideoUrl={screen7Face} />
+				<Face faceVideoUrl={screen8Face} />
 			</Sequence>
 		</div>
 	);

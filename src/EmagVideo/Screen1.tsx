@@ -1,9 +1,8 @@
-import screen1 from './assets/videos/screen-1.mp4'
 import { VideoScreen } from './VideoScreen'
 import { ProductName } from './ProductName'
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-export const Screen1: React.FC<{productName: string}> = ({productName}) => {
-
+export const Screen1: React.FC<{screenOneVideo: string, productName: string}> = ({productName , screenOneVideo}) => {
+  const screen1 = require( `${screenOneVideo}`);
 	return (
 		<div>
 			<Sequence from={0} durationInFrames={Infinity}>

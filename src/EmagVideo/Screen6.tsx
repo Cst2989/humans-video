@@ -1,12 +1,12 @@
 import {Audio} from 'remotion'
-import screen6 from './assets/videos/screen-6.mp4'
-import audio1 from './assets/audios/guy01.wav'
-import audio2 from './assets/audios/guy02.wav'
 import { VideoScreen } from './VideoScreen'
 import { ProductReview } from './ProductReview'
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-export const Screen6: React.FC<{productReview1: string, productReview2: string}> = ({productReview1, productReview2}) => {
+export const Screen6: React.FC<{productReviewAudio1: string, productReviewAudio2: string, screenSixVideo: string, productReview1: string, productReview2: string}> = ({productReviewAudio1, productReviewAudio2, screenSixVideo, productReview1, productReview2}) => {
   const frame = useCurrentFrame();
+  const screen6 = require( `${screenSixVideo}`);
+  const audio1 = require( `${productReviewAudio1}`);
+  const audio2 = require( `${productReviewAudio2}`);
   const bottom  = interpolate(frame, [0, 20], [-1920, 0], {
     extrapolateRight: "clamp"
   });

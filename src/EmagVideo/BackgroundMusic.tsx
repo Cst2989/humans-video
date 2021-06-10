@@ -1,6 +1,6 @@
 import {Audio} from 'remotion'
-import audio from './assets/audio.mp3'
-export const BackgroundMusic: React.FC = () => {
+export const BackgroundMusic: React.FC <{bgMusic: string}> = ({bgMusic}) => {
+  const audio = require( `${bgMusic}`);
 	return (
 		<Audio
 			src={audio}

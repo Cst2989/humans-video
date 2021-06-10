@@ -1,9 +1,9 @@
-import screen7 from './assets/videos/huawei.mp4'
 import { VideoScreen } from './VideoScreen'
 import { Face } from './Face'
-import screen7Face from './assets/fata/screen7.mp4'
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-export const Screen7: React.FC = () => {
+export const Screen7: React.FC<{screenSevenVideo: string, screenSevenFaceVideo: string}> = ({screenSevenVideo, screenSevenFaceVideo}) => {
+  const screen7 = require( `${screenSevenVideo}`);
+  const screen7Face = require( `${screenSevenFaceVideo}`);
   const frame = useCurrentFrame();
   const left  = interpolate(frame, [0, 35], [-1920, 0], {
     extrapolateRight: "clamp"

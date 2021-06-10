@@ -1,11 +1,10 @@
 import {Audio} from 'remotion'
-import screen9 from './assets/videos/screen-9.mp4'
-import audio1 from './assets/audios/huawei02.wav'
 import { VideoScreen } from './VideoScreen'
-import { ProductFullName } from './ProductFullName'
 import Logo from './assets/logo-emag.png';
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-export const Screen9: React.FC = () => {
+export const Screen9: React.FC<{screenNineVideo: string, screenNineAudio: string}>= ({screenNineVideo,screenNineAudio }) => {
+  const screen9 = require( `${screenNineVideo}`);
+  const audio1 = require( `${screenNineAudio}`);
   const frame = useCurrentFrame();
   const left  = interpolate(frame, [0, 35], [-1920, 0], {
     extrapolateRight: "clamp"

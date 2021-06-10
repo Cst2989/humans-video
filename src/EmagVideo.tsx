@@ -1,9 +1,5 @@
 import {Audio} from 'remotion'
 import {interpolate, Sequence, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Logo} from './EmagVideo/Logo';
-import {Bubble} from './EmagVideo/Bubble';
-import {Title} from './EmagVideo/Title';
-import {VideoReview} from './EmagVideo/Video';
 import {Screen1} from './EmagVideo/Screen1';
 import {Screen2} from './EmagVideo/Screen2';
 import {Screen3} from './EmagVideo/Screen3';
@@ -14,21 +10,37 @@ import {Screen7} from './EmagVideo/Screen7';
 import {Screen8} from './EmagVideo/Screen8';
 import {Screen9} from './EmagVideo/Screen9';
 import {BackgroundMusic} from './EmagVideo/BackgroundMusic';
-import audio2 from './EmagVideo/assets/audios/huawei00.wav'
-import audio1 from './EmagVideo/assets/fata/emag.mp4'
-import Bg from './EmagVideo/bg.png';
 export const EmagVideo: React.FC<{
 	productName: string;
+  screenOneVideo: string;
+  screnOneAudio: string;
+  screenTwoVideo: string;
+  screenTwoAudio: string;
+  screenThreeVideo: string;
+  screenFourVideo: string;
+  screenFiveVideo: string;
+  ratingVideo: string;
+  screenSixVideo: string;
+  productReviewAudio1: string;
+  productReviewAudio2: string;
+  screenSevenVideo: string;
+  screenSevenFaceVideo: string;
+  screenEightVideo: string;
+  screenEightFaceVideo: string;
+  screenNineVideo: string;
+  screenNineAudio: string;
 	productFullName: string;
   productPrice: string;
   productDiscount: string;
   productRating: string;
   productReview1: string;
   productReview2: string;
-}> = ({productName, productFullName, productPrice, productDiscount, productRating, productReview1, productReview2}) => {
+  bgMusic: string;
+}> = ({productName, screenOneVideo,screnOneAudio, screenTwoVideo, screenTwoAudio, screenThreeVideo, screenFourVideo, screenFiveVideo, ratingVideo, screenSixVideo, productReviewAudio1, productReviewAudio2,screenSevenVideo, screenSevenFaceVideo,screenEightVideo,  screenEightFaceVideo, screenNineVideo, screenNineAudio, productFullName, productPrice, productDiscount, productRating, productReview1, productReview2, bgMusic}) => {
 	const frame = useCurrentFrame();
 	const videoConfig = useVideoConfig();
-
+  const audio1 = require( `${screnOneAudio}`);
+  const audio2 = require( `${screenTwoAudio}`);
 	const opacity = interpolate(
 		frame,
 		[videoConfig.durationInFrames - 25, videoConfig.durationInFrames - 15],
@@ -43,10 +55,10 @@ export const EmagVideo: React.FC<{
 		<div style={{flex: 1,  backgroundColor: `#000`}}>
 			<div style={{opacity}}>
 				<Sequence from={0} durationInFrames={Infinity}>
-					<BackgroundMusic/>
+					<BackgroundMusic bgMusic={bgMusic}/>
 				</Sequence>
 				<Sequence from={0} durationInFrames={160}>
-					<Screen1 productName={productName} />
+					<Screen1 screenOneVideo={screenOneVideo} productName={productName} />
 				</Sequence>
 				<Sequence from={20} durationInFrames={Infinity}>
 					<Audio
@@ -55,7 +67,7 @@ export const EmagVideo: React.FC<{
 		    />
 				</Sequence>
 				<Sequence from={100} durationInFrames={140}>
-					<Screen2 productFullName={productFullName} />
+					<Screen2 screenTwoVideo={screenTwoVideo} productFullName={productFullName} />
 				</Sequence>
 				<Sequence from={100} durationInFrames={Infinity}>
 					<Audio
@@ -64,25 +76,25 @@ export const EmagVideo: React.FC<{
 		    />
 				</Sequence>
 				<Sequence from={210} durationInFrames={160}>
-					<Screen4 productPrice={productPrice} />
+					<Screen4 screenThreeVideo={screenThreeVideo} productPrice={productPrice} />
 				</Sequence>
 				<Sequence from={300} durationInFrames={160}>
-					<Screen3 productDiscount={productDiscount} />
+					<Screen3 screenFourVideo={screenFourVideo} productDiscount={productDiscount} />
 				</Sequence>
 				<Sequence from={430} durationInFrames={160}>
-					<Screen5 productRating={productRating} />
+					<Screen5 ratingVideo={ratingVideo} screenFiveVideo={screenFiveVideo} productRating={productRating} />
 				</Sequence>
 				<Sequence from={530} durationInFrames={240}>
-					<Screen6 productReview1={productReview1} productReview2={productReview2} />
+					<Screen6 productReviewAudio1={productReviewAudio1} productReviewAudio2={productReviewAudio2} screenSixVideo={screenSixVideo} productReview1={productReview1} productReview2={productReview2} />
 				</Sequence>
 				<Sequence from={700} durationInFrames={400}>
-					<Screen7  />
+					<Screen7 screenSevenVideo={screenSevenVideo} screenSevenFaceVideo={screenSevenFaceVideo} />
 				</Sequence>
 				<Sequence from={1050} durationInFrames={500}>
-					<Screen8  />
+					<Screen8 screenEightVideo={screenEightVideo} screenEightFaceVideo={screenEightFaceVideo}/>
 				</Sequence>
 				<Sequence from={1530} durationInFrames={Infinity}>
-					<Screen9  />
+					<Screen9 screenNineVideo={screenNineVideo} screenNineAudio={screenNineAudio} />
 				</Sequence>
 			</div>
 		</div>

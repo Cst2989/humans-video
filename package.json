@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"description": "My Remotion video",
 	"scripts": {
-		"start": "remotion preview src/index.tsx",
-		"build": "remotion render src/index.tsx EmagVideo out.mp4",
+		"start": "remotion preview src/index.tsx --props=./props.json",
+		"build": "remotion render src/index.tsx HelloWorld out.mp4 --props=./props.json",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
