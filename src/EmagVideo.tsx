@@ -36,7 +36,8 @@ export const EmagVideo: React.FC<{
   productReview1: string;
   productReview2: string;
   bgMusic: string;
-}> = ({productName, screenOneVideo,screnOneAudio, screenTwoVideo, screenTwoAudio, screenThreeVideo, screenFourVideo, screenFiveVideo, ratingVideo, screenSixVideo, productReviewAudio1, productReviewAudio2,screenSevenVideo, screenSevenFaceVideo,screenEightVideo,  screenEightFaceVideo, screenNineVideo, screenNineAudio, productFullName, productPrice, productDiscount, productRating, productReview1, productReview2, bgMusic}) => {
+  show3DVideo: boolean;
+}> = ({productName, screenOneVideo,screnOneAudio, screenTwoVideo, screenTwoAudio, screenThreeVideo, screenFourVideo, screenFiveVideo, ratingVideo, screenSixVideo, productReviewAudio1, productReviewAudio2,screenSevenVideo, screenSevenFaceVideo,screenEightVideo,  screenEightFaceVideo, screenNineVideo, screenNineAudio, productFullName, productPrice, productDiscount, productRating, productReview1, productReview2, bgMusic, show3DVideo}) => {
 	const frame = useCurrentFrame();
 	const videoConfig = useVideoConfig();
   const audio1 = require( `${screnOneAudio}`);
@@ -87,13 +88,16 @@ export const EmagVideo: React.FC<{
 				<Sequence from={530} durationInFrames={240}>
 					<Screen6 productReviewAudio1={productReviewAudio1} productReviewAudio2={productReviewAudio2} screenSixVideo={screenSixVideo} productReview1={productReview1} productReview2={productReview2} />
 				</Sequence>
-				<Sequence from={700} durationInFrames={400}>
-					<Screen7 screenSevenVideo={screenSevenVideo} screenSevenFaceVideo={screenSevenFaceVideo} />
-				</Sequence>
-				<Sequence from={1050} durationInFrames={500}>
-					<Screen8 screenEightVideo={screenEightVideo} screenEightFaceVideo={screenEightFaceVideo}/>
-				</Sequence>
-				<Sequence from={1530} durationInFrames={Infinity}>
+				{show3DVideo && (
+					<div>
+						<Sequence from={700} durationInFrames={400}>
+							<Screen7 screenSevenVideo={screenSevenVideo} screenSevenFaceVideo={screenSevenFaceVideo} />
+						</Sequence>
+						<Sequence from={1050} durationInFrames={500}>
+							<Screen8 screenEightVideo={screenEightVideo} screenEightFaceVideo={screenEightFaceVideo}/>
+						</Sequence>
+					</div> )}
+				<Sequence from={show3DVideo ? 1530 : 760} durationInFrames={Infinity}>
 					<Screen9 screenNineVideo={screenNineVideo} screenNineAudio={screenNineAudio} />
 				</Sequence>
 			</div>

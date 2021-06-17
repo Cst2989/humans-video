@@ -23,5 +23,6 @@
   "productRating": "4.7",
   "productReview1": "Nice balance of performance and battery life",
   "productReview2": "If you like the build of a Macbook but prefer a PC this is the laptop for you",
-  "bgMusic": "./assets/audio.mp3"
+  "bgMusic": "./assets/audio.mp3",
+  "show3DVideo": false
 }
