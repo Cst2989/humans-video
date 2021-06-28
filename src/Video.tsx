@@ -1,16 +1,16 @@
 import {useVideoConfig} from 'remotion'
 import {getInputProps} from 'remotion'
 import { Composition } from 'remotion';
-import { EmagVideo } from './EmagVideo';
+import { ModularVideo } from './ModularVideo';
 export const RemotionVideo: React.FC = () => {
   const props = getInputProps();
-  console.log(props)
+  const videoDuration = props.screen1.duration + props.screen2.duration + props.screen3.duration + props.screen4.duration + props.screen5.duration + props.screen6.duration + props.screen7.duration + props.screen8.duration +props.screen9.duration + props.screen10.duration;
 	return (
 		<div className="video">
 			<Composition
-				id="EmagVideo"
-				component={EmagVideo}
-				durationInFrames={props.show3DVideo ? 1700 : 970}
+				id="ModularVideo"
+				component={ModularVideo}
+				durationInFrames={videoDuration}
 				fps={30}
 				width={1920}
 				height={1080}
